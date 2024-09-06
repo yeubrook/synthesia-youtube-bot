@@ -108,14 +108,14 @@ def create_list_youtube_files(directory):
 if __name__ == "__main__":
     
     # Retrieve Midi information
-    midi_files = create_list_midi_files('/Users/yeubrook/Desktop/python/selenium/midifiles/')
+    midi_files = create_list_midi_files('/Users/yeubrook/Desktop/python/selenium/synthesia-youtube-bot/midifiles/')
     midi_files.sort()
     number_of_songs = len(midi_files)
     song_durations = []
     print("Number of songs: ", number_of_songs)
 
     for rotation in range(0, number_of_songs):
-        midi_path = process_list(rotation, '/Users/yeubrook/Desktop/python/selenium/midifiles/')
+        midi_path = process_list(rotation, '/Users/yeubrook/Desktop/python/selenium/synthesia-youtube-bot/midifiles/')
         song_duration = get_midi_duration(midi_path)
         song_durations.append(song_duration)
         print(midi_path)
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         record(song_duration) # Record
     
         
-    youtube_list = create_list_youtube_files('/Users/yeubrook/Desktop/python/selenium/videos_to_edit/')
+    youtube_list = create_list_youtube_files('/Users/yeubrook/Desktop/python/selenium/synthesia-youtube-bot/videos_to_edit/')
     youtube_list.sort()
     
     
@@ -179,7 +179,7 @@ if __name__ == "__main__":
 
         # Upload file
         upload_files = driver.find_element(By.XPATH, '//*[@id="content"]/input')
-        upload_files.send_keys("/Users/yeubrook/Desktop/python/selenium/videos_to_edit/" + youtube_list[rotation])
+        upload_files.send_keys("/Users/yeubrook/Desktop/python/selenium/synthesia-youtube-bot/videos_to_edit/" + youtube_list[rotation])
 
         time.sleep(2)
     
